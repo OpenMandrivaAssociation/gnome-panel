@@ -12,17 +12,18 @@
 
 %define in_process_applets 1
 
+
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.18.0
-Release: %mkrel 5
+Version: 2.18.1
+Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	mandriva-panel.png
 
 # (fc) 2.0.1-2mdk  use xlock instead of xscreensaver to lock root desktop
-Patch0:		gnome-panel-2.13.5-rootlock.patch
+Patch0:		gnome-panel-2.18.1-rootlock.patch
 # (fc) 2.0.1-2mdk  Mandriva customization
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
@@ -31,8 +32,6 @@ Patch2:		gnome-panel-2.14.1-suspend.patch
 Patch13:	gnome-panel-2.10.2-kdeicons.patch
 # (fc) 2.10.2-5mdk support .desktop as bookmark
 Patch14:	gnome-panel-2.16.0-desktopitem.patch
-# (fc) 2.18.0-5mdv lock screen when using switch user (Mdv bug #29717)
-Patch15:	gnome-panel-2.18.0-fixflexiserverlock.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
@@ -113,7 +112,6 @@ Panel libraries and header files for creating GNOME panels.
 %patch1 -p1 -b .mdvcustomizations
 %patch13 -p1 -b .kdeicons
 %patch14 -p1 -b .desktopitem
-%patch15 -p1 -b .fixflexiserverlock
 
 %build
 
@@ -138,9 +136,6 @@ rm -rf %buildroot%_datadir/omf/gnome-panel
 for omf in %buildroot%_datadir/omf/*/{*-??.omf,*-??_??.omf};do
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buildroot!!)" >> %name-2.0.lang
 done
-
-#fix .desktop to really hide gnome-panel (to remove with 2.18.1)
-sed -i -e 's/NoDisplay=True/NoDisplay=true/' $RPM_BUILD_ROOT%{_datadir}/applications/gnome-panel.desktop
 
 #remove unpackaged files
 rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome-panelrc $RPM_BUILD_ROOT%{_localstatedir}/scrollkeeper $RPM_BUILD_ROOT%{_libexecdir}/gnome-panel/*.{a,la}
@@ -224,5 +219,3 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_libdir}/*.a
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
-
-
