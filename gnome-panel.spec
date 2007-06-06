@@ -1,4 +1,4 @@
-%define req_libwnck_version 2.11.91
+%define req_libwnck_version 2.19.3
 %define req_libglade_version 2.5.0
 %define req_gconf2_version 2.6.1
 %define req_gnomeui_version 2.5.4
@@ -15,7 +15,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.18.2
+Version: 2.19.3
 Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
@@ -28,10 +28,8 @@ Patch0:		gnome-panel-2.18.1-rootlock.patch
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
 Patch2:		gnome-panel-2.14.1-suspend.patch
-# (fc) 2.10.2-4mdk fix KDE icons search (Mdk bug #17279)
-Patch13:	gnome-panel-2.10.2-kdeicons.patch
 # (fc) 2.10.2-5mdk support .desktop as bookmark
-Patch14:	gnome-panel-2.16.0-desktopitem.patch
+Patch14:	gnome-panel-desktopitem.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
@@ -110,7 +108,6 @@ Panel libraries and header files for creating GNOME panels.
 %patch0 -p1 -b .rootlock
 %patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
-%patch13 -p1 -b .kdeicons
 %patch14 -p1 -b .desktopitem
 
 %build
@@ -127,7 +124,7 @@ rm -rf $RPM_BUILD_ROOT %name-2.0.lang
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
-install -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/panel/pixmaps/
+install -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome-panel/pixmaps
 
 #remove old files
 rm -rf %buildroot%_datadir/omf/gnome-panel
@@ -199,7 +196,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_datadir}/applications/*.desktop
 %dir %{_datadir}/gnome
 %dir %{_datadir}/gnome/help
-%{_datadir}/gnome/panel
+%_datadir/gnome-panel
 %{_datadir}/gnome-2.0/ui/*
 %{_datadir}/idl/*
 %dir %{_datadir}/omf/*
