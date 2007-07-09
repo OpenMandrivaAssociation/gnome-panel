@@ -1,4 +1,4 @@
-%define req_libwnck_version 2.19.3
+%define req_libwnck_version 2.19.5
 %define req_libglade_version 2.5.0
 %define req_gconf2_version 2.6.1
 %define req_gnomeui_version 2.5.4
@@ -15,7 +15,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.19.4
+Version: 2.19.5
 Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
