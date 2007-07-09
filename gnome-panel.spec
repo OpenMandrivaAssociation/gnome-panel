@@ -28,6 +28,7 @@ Patch0:		gnome-panel-2.18.1-rootlock.patch
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
 Patch2:		gnome-panel-2.14.1-suspend.patch
+Patch3: gnome-panel-2.19.5-fpic.patch
 # (fc) 2.10.2-5mdk support .desktop as bookmark
 Patch14:	gnome-panel-desktopitem.patch
 
@@ -108,7 +109,11 @@ Panel libraries and header files for creating GNOME panels.
 %patch0 -p1 -b .rootlock
 %patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
+%patch3 -p1
 %patch14 -p1 -b .desktopitem
+aclocal -I m4
+autoconf
+automake -a -c
 
 %build
 
