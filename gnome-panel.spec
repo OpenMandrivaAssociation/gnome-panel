@@ -32,6 +32,7 @@ Patch3: gnome-panel-2.19.5-fpic.patch
 # (fc) 2.10.2-5mdk support .desktop as bookmark
 Patch14:	gnome-panel-desktopitem.patch
 Patch15:	gnome-panel_clock_tz_fix_crash.patch
+Patch16:	gnome-panel_clock_tz_fix_more_crash.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
@@ -113,6 +114,7 @@ Panel libraries and header files for creating GNOME panels.
 %patch3 -p1
 %patch14 -p1 -b .desktopitem
 %patch15 -p0 -b .clockcrash
+%patch16 -p0 -b .clockcrash2
 aclocal -I m4
 autoconf
 automake -a -c
