@@ -8,7 +8,8 @@
 
 %define api_version 2
 %define lib_major   0
-%define lib_name	%mklibname panel-applet- %{api_version} %{lib_major}
+%define libname	%mklibname panel-applet- %{api_version} %{lib_major}
+%define libnamedev %mklibname -d panel-applet- %{api_version}
 
 %define in_process_applets 1
 
@@ -16,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.19.5
-Release: %mkrel 2
+Release: %mkrel 3
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -85,25 +86,26 @@ software.
 The GNOME panel packages provides the gnome panel, menus and some
 basic applets for the panel.
 
-%package -n	%{lib_name}
+%package -n	%{libname}
 Summary:	%{summary}
 Group:		%{group}
 
 Provides:	libpanel-applet = %{version}-%{release}
 Provides:	libpanel-applet-%{api_version} = %{version}-%{release}
 
-%description -n	%{lib_name}
+%description -n	%{libname}
 Panel libraries for running GNOME panels.
 
-%package -n	%{lib_name}-devel
+%package -n	%{libnamedev}
 Summary:	Static libraries, include files for GNOME panel
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	libpanel-applet-devel = %{version}-%{release}
 Provides:	libpanel-applet-%{api_version}-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}
+Requires:	%{libname} = %{version}
+Obsoletes: %mklibname -d panel-applet- 2 0
 
-%description -n	%{lib_name}-devel
+%description -n	%{libnamedev}
 Panel libraries and header files for creating GNOME panels.
 
 %prep
@@ -152,7 +154,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome-panelrc $RPM_BUILD_ROOT%{_localstatedir}
 
 %define schemas clock fish panel-compatibility panel-general panel-global panel-object panel-toplevel window-list workspace-switcher
 
-%post -p /sbin/ldconfig -n %{lib_name}
+%post -p /sbin/ldconfig -n %{libname}
 
 %post
 %update_scrollkeeper 
@@ -169,7 +171,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %preun
 %preun_uninstall_gconf_schemas %{schemas}
 
-%postun -p /sbin/ldconfig -n %{lib_name}
+%postun -p /sbin/ldconfig -n %{libname}
 
 %postun
 %clean_scrollkeeper
@@ -212,11 +214,11 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_datadir}/omf/*/*-C.omf
 %{_datadir}/icons/hicolor/*/apps/*
 
-%files -n %{lib_name}
+%files -n %{libname}
 %defattr (-, root, root)
-%{_libdir}/*.so.*
+%{_libdir}/libpanel-applet-%{api_version}.so.%{lib_major}*
 
-%files -n %{lib_name}-devel
+%files -n %{libnamedev}
 %defattr (-, root, root)
 %doc ChangeLog
 %doc %{_datadir}/gtk-doc/html/*
