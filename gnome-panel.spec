@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.19.5
-Release: %mkrel 3
+Release: %mkrel 4
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -30,8 +30,6 @@ Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
 Patch2:		gnome-panel-2.14.1-suspend.patch
 Patch3: gnome-panel-2.19.5-fpic.patch
-# (fc) 2.10.2-5mdk support .desktop as bookmark
-Patch14:	gnome-panel-desktopitem.patch
 Patch15:	gnome-panel_clock_tz_fix_crash.patch
 Patch16:	gnome-panel_clock_tz_fix_more_crash.patch
 
@@ -113,8 +111,7 @@ Panel libraries and header files for creating GNOME panels.
 %patch0 -p1 -b .rootlock
 %patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
-%patch3 -p1
-%patch14 -p1 -b .desktopitem
+%patch3 -p1 -b .pic
 %patch15 -p0 -b .clockcrash
 %patch16 -p0 -b .clockcrash2
 aclocal -I m4
