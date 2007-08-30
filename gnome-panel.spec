@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.19.6
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -118,7 +118,7 @@ automake -a -c
 
 %build
 
-%configure2_5x --enable-eds --disable-scrollkeeper \
+%configure2_5x --enable-eds --disable-scrollkeeper --with-clock-time-utility=%{_bindir}/drakclock \
 %if %{in_process_applets}
 --with-in-process-applets=all
 %endif
