@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.19.92
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -31,6 +31,8 @@ Patch1:		gnome-panel-mdvcustomizations.patch
 Patch2:		gnome-panel-2.14.1-suspend.patch
 Patch3: gnome-panel-2.19.5-fpic.patch
 Patch15:	gnome-panel_clock_tz_fix_crash.patch
+# (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
+Patch16:	gnome-panel-2.19.6-search.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
@@ -112,6 +114,7 @@ Panel libraries and header files for creating GNOME panels.
 %patch1 -p1 -b .mdvcustomizations
 %patch3 -p1 -b .pic
 %patch15 -p0 -b .clockcrash
+%patch16 -p1 -b .search
 aclocal -I m4
 autoconf
 automake -a -c
