@@ -16,8 +16,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.20.0.1
-Release: %mkrel 3
+Version: 2.20.1
+Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
