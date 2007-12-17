@@ -33,7 +33,6 @@ Patch3: gnome-panel-2.19.5-fpic.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.19.6-search.patch
 
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
 BuildRequires:	libglade2.0-devel >= %{req_libglade_version}
