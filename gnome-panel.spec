@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.20.3
+Version: 2.21.5
 Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
@@ -41,6 +41,8 @@ BuildRequires:	libwnck-devel >= %{req_libwnck_version}
 BuildRequires:	perl-XML-Parser
 BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
+BuildRequires:	librsvg-devel
+BuildRequires:	libgweather-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-doc-utils
 BuildRequires:	libxslt-proc
@@ -120,6 +122,7 @@ automake -a -c
 
 %build
 
+export CPPFLAGS=-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
 %configure2_5x --enable-eds --disable-scrollkeeper --with-clock-time-utility=%{_bindir}/drakclock \
 %if %{in_process_applets}
 --with-in-process-applets=all
