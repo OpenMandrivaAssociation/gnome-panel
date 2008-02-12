@@ -3,7 +3,7 @@
 %define req_gconf2_version 2.6.1
 %define req_gnomeui_version 2.5.4
 %define req_gtk_version 2.11.3
-%define req_vfs_version 2.14.2
+%define req_glib_version 2.15.5
 %define req_gnomedesktop_version 2.11.1
 
 %define api_version 2
@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.21.90
+Version: 2.21.91
 Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
@@ -46,13 +46,12 @@ BuildRequires:	libgweather-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-doc-utils
 BuildRequires:	libxslt-proc
-BuildRequires:	glib2-devel >= 2.6.0
+BuildRequires:	glib2-devel >= %req_glib_version
 BuildRequires:	gtk+2-devel >= %{req_gtk_version}
 BuildRequires:	libgnomeui2-devel >= %{req_gnomeui_version}
 BuildRequires:	libGConf2-devel >= %{req_gconf2_version}
 BuildRequires:	evolution-data-server-devel >= 1.5.3
 BuildRequires:  gnome-menus-devel >= 2.11.1
-BuildRequires:  gnome-vfs2-devel >= %{req_vfs_version}
 BuildRequires:  automake1.8
 BuildRequires:	gtk-doc
 BuildRequires:	gnome-common
@@ -63,7 +62,7 @@ Requires:	gnome-session
 Requires:	gnome-desktop
 Requires:	GConf2 >= %{req_gconf2_version}
 Requires:	gnome-applets
-Requires:	glib2 >= 2.6.0
+Requires:	glib2 >= %req_glib_version
 Requires:	gnome-menus
 Requires:	alacarte
 
