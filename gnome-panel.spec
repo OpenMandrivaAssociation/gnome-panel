@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.21.91
+Version: 2.21.92
 Release: %mkrel 1
 License:	GPL/LGPL
 Group:		Graphical desktop/GNOME
@@ -43,6 +43,7 @@ BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
 BuildRequires:	libgweather-devel
+BuildRequires:	policykit-gnome-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-doc-utils
 BuildRequires:	libxslt-proc
@@ -179,6 +180,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %files -f %name-2.0.lang
 %defattr (-, root, root)
 %doc AUTHORS COPYING NEWS README
+%{_sysconfdir}/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf
 %{_sysconfdir}/gconf/schemas/clock.schemas
 %{_sysconfdir}/gconf/schemas/fish.schemas
 %{_sysconfdir}/gconf/schemas/panel-compatibility.schemas
@@ -192,6 +194,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_sysconfdir}/gconf/schemas/panel-default-setup.entries
 
 %{_bindir}/*
+%{_libexecdir}/gnome-clock-applet-mechanism
 %if %{in_process_applets}
 %dir %{_libexecdir}/gnome-panel
 %dir %{_libexecdir}/gnome-panel/*.so
@@ -212,6 +215,8 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %dir %{_datadir}/omf/*
 %{_datadir}/omf/*/*-C.omf
 %{_datadir}/icons/hicolor/*/apps/*
+%{_datadir}/PolicyKit/policy/gnome-clock-applet-mechanism.policy
+%{_datadir}/dbus-1/system-services/org.gnome.ClockApplet.Mechanism.service
 
 %files -n %{libname}
 %defattr (-, root, root)
