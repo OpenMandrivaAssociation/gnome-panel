@@ -16,9 +16,9 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.22.0
-Release: %mkrel 4
-License:	GPL/LGPL
+Version: 2.22.1.2
+Release: %mkrel 1
+License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Source1:	mandriva-panel.png
@@ -29,13 +29,8 @@ Patch0:		gnome-panel-2.18.1-rootlock.patch
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
 Patch2:		gnome-panel-2.14.1-suspend.patch
-Patch3: gnome-panel-2.19.5-fpic.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.19.6-search.patch
-# (fc) 2.22.0-2mdv fix invalid username when locale is not utf8
-Patch17:	gnome-panel-2.22.0-nonutf8.patch
-# (fc) 2.22.0-2mdv various svn fixes for clock applet
-Patch18:	gnome-panel-2.22.0-svnfixes.patch
 
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
@@ -46,7 +41,7 @@ BuildRequires:	perl-XML-Parser
 BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
-BuildRequires:	libgweather-devel
+BuildRequires:	libgweather-devel >= 2.22.1
 BuildRequires:	policykit-gnome-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-doc-utils
@@ -117,10 +112,7 @@ Panel libraries and header files for creating GNOME panels.
 %patch0 -p1 -b .rootlock
 %patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
-%patch3 -p1 -b .pic
 %patch16 -p1 -b .search
-%patch17 -p1 -b .fixutf8
-%patch18 -p1 -b .svnfixes
 
 aclocal -I m4
 autoconf
