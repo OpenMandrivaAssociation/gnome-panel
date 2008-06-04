@@ -120,7 +120,6 @@ automake -a -c
 
 %build
 
-export CPPFLAGS=-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE
 %configure2_5x --enable-eds --disable-scrollkeeper --with-clock-time-utility=%{_bindir}/drakclock \
 %if %{in_process_applets}
 --with-in-process-applets=all
