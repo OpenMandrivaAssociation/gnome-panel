@@ -151,7 +151,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome-panelrc $RPM_BUILD_ROOT%{_localstatedir}
 
 %define schemas clock fish panel-compatibility panel-general panel-global panel-object panel-toplevel window-list workspace-switcher
 
+%if %mdkversion < 200900
 %post -p /sbin/ldconfig -n %{libname}
+%endif
 
 %post
 %update_scrollkeeper 
@@ -168,7 +170,9 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %preun
 %preun_uninstall_gconf_schemas %{schemas}
 
+%if %mdkversion < 200900
 %postun -p /sbin/ldconfig -n %{libname}
+%endif
 
 %postun
 %clean_scrollkeeper
