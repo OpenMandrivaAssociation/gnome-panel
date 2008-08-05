@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.23.5
+Version: 2.23.6
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -28,7 +28,7 @@ Patch0:		gnome-panel-2.18.1-rootlock.patch
 # (fc) 2.0.1-2mdk  Mandriva customization
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
-Patch2:		gnome-panel-2.14.1-suspend.patch
+Patch2:		gnome-panel-2.23.6-suspend.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.19.6-search.patch
 
@@ -41,7 +41,7 @@ BuildRequires:	perl-XML-Parser
 BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
-BuildRequires:	libgweather-devel >= 2.22.1
+BuildRequires:	libgweather-devel >= 2.23.6
 BuildRequires:	policykit-gnome-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-doc-utils
