@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.24.0
+Version: 2.24.1
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -41,7 +41,7 @@ BuildRequires:	perl-XML-Parser
 BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
-BuildRequires:	libgweather-devel >= 2.23.6
+BuildRequires:	libgweather-devel >= 2.24.1
 BuildRequires:	policykit-gnome-devel
 BuildRequires:	scrollkeeper
 BuildRequires:	gnome-doc-utils
