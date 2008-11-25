@@ -56,6 +56,8 @@ BuildRequires:  automake1.8 gettext-devel
 BuildRequires:	gtk-doc
 BuildRequires:	gnome-common
 BuildRequires:	intltool
+# gw libtool dep:
+BuildRequires: libtasn1-devel
 Requires(post):	scrollkeeper
 Requires(postun): scrollkeeper
 Requires:	gnome-session
