@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.25.3
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -61,7 +61,7 @@ Requires(postun): scrollkeeper
 Requires:	gnome-session
 Requires:	gnome-desktop
 Requires:	GConf2 >= %{req_gconf2_version}
-Requires:	gnome-applets
+Suggests:	gnome-applets
 Requires:	glib2 >= %req_glib_version
 Requires:	gnome-menus
 Requires:	alacarte
@@ -72,8 +72,6 @@ Requires:	gnome-screensaver
 Requires:	desktop-common-data
 #(patch0)
 Requires:	xlockmore
-#(patch1) (needed for time setting)
-Requires:	drakxtools
 
 %description
 GNOME (GNU Network Object Model Environment) is a user-friendly
@@ -115,13 +113,11 @@ Panel libraries and header files for creating GNOME panels.
 %patch16 -p0 -b .search
 %patch17 -p1
 
-aclocal
-autoconf
-automake -a -c
+autoreconf
 
 %build
 
-%configure2_5x --enable-eds --disable-scrollkeeper --with-clock-time-utility=%{_bindir}/drakclock \
+%configure2_5x --enable-eds --disable-scrollkeeper \
 %if %{in_process_applets}
 --with-in-process-applets=all
 %endif
