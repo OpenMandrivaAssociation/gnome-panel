@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.24.2
+Version: 2.25.3
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -30,8 +30,8 @@ Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
 Patch2:		gnome-panel-2.23.6-suspend.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
-Patch16:	gnome-panel-2.19.6-search.patch
-
+Patch16:	gnome-panel-2.25.3-search.patch
+Patch17:	gnome-panel-2.25.3-format-strings.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -112,9 +112,10 @@ Panel libraries and header files for creating GNOME panels.
 %patch0 -p1 -b .rootlock
 %patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
-%patch16 -p1 -b .search
+%patch16 -p0 -b .search
+%patch17 -p1
 
-aclocal -I m4
+aclocal
 autoconf
 automake -a -c
 
