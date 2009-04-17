@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.26.1
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -31,6 +31,10 @@ Patch1:		gnome-panel-mdvcustomizations.patch
 Patch2:		gnome-panel-2.23.6-suspend.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.25.3-search.patch
+# (fc) 2.26.1-2mdv don't popup error message if one of default applet is missing (Fedora)
+Patch17:	gnome-panel-2.26.1-applet-error.patch
+# (fc) 2.26.1-2mdv fix libglade warning
+Patch18:	gnome-panel-2.26.1-libgladewarning.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -110,6 +114,8 @@ Panel libraries and header files for creating GNOME panels.
 %patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
 %patch16 -p0 -b .search
+%patch17 -p1 -b .applet-error
+%patch18 -p1 -b .libglade-warning
 
 %build
 
