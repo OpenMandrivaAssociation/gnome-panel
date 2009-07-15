@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.26.3
+Version: 2.27.4
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
