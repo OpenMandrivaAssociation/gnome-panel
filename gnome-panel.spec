@@ -24,7 +24,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Source1:	mandriva-panel.png
 
 # (fc) 2.0.1-2mdk  use xlock instead of xscreensaver to lock root desktop
-Patch0:		gnome-panel-2.18.1-rootlock.patch
+Patch0:		gnome-panel-2.27.91-rootlock.patch
 # (fc) 2.0.1-2mdk  Mandriva customization
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.3.6.2-2mdk add "Suspend to disk" support
@@ -43,7 +43,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
 BuildRequires:	libgweather-devel >= 2.27.90
 BuildRequires:	polkit-1-devel
-BuildRequires:	scrollkeeper
+BuildRequires:	rarian
 BuildRequires:	gnome-doc-utils
 BuildRequires:	libxslt-proc
 BuildRequires:	glib2-devel >= %req_glib_version
