@@ -38,7 +38,6 @@ URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
 BuildRequires:	libglade2.0-devel >= %{req_libglade_version}
 BuildRequires:	libwnck-devel >= %{req_libwnck_version}
-BuildRequires:	perl-XML-Parser
 BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
@@ -61,6 +60,7 @@ Requires(post):	scrollkeeper
 Requires(postun): scrollkeeper
 Requires:	gnome-session
 Requires:	gnome-desktop
+Requires:	polkit-agent
 Requires:	GConf2 >= %{req_gconf2_version}
 Suggests:	gnome-applets
 Requires:	glib2 >= %req_glib_version
