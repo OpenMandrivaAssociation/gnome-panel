@@ -192,6 +192,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 
 %{_bindir}/*
 %{_libexecdir}/gnome-clock-applet-mechanism
+%{_libexecdir}/gnome-panel-add
 %if %{in_process_applets}
 %dir %{_libexecdir}/gnome-panel
 %dir %{_libexecdir}/gnome-panel/*.so
