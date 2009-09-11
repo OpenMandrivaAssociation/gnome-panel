@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.27.91
+Version: 2.27.92
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -51,7 +51,7 @@ BuildRequires:	gtk+2-devel >= %{req_gtk_version}
 BuildRequires:	libgnomeui2-devel >= %{req_gnomeui_version}
 BuildRequires:	libGConf2-devel >= %{req_gconf2_version}
 BuildRequires:	evolution-data-server-devel >= 1.5.3
-BuildRequires:  gnome-menus-devel >= 2.11.1
+BuildRequires:  gnome-menus-devel >= 2.27.92
 BuildRequires:  automake1.8 gettext-devel
 BuildRequires:	gtk-doc
 BuildRequires:	gnome-common
