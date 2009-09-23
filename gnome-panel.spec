@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.28.0
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -27,8 +27,6 @@ Source1:	mandriva-panel.png
 Patch0:		gnome-panel-2.27.91-rootlock.patch
 # (fc) 2.0.1-2mdk  Mandriva customization
 Patch1:		gnome-panel-mdvcustomizations.patch
-# (fc) 2.3.6.2-2mdk add "Suspend to disk" support
-Patch2:		gnome-panel-2.23.6-suspend.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.27.91-search.patch
 # (fc) 2.26.1-2mdv don't popup error message if one of default applet is missing (Fedora)
@@ -109,7 +107,6 @@ Panel libraries and header files for creating GNOME panels.
 %prep
 %setup -q
 %patch0 -p1 -b .rootlock
-%patch2 -p1 -b .suspend
 %patch1 -p1 -b .mdvcustomizations
 %patch16 -p1 -b .search
 %patch17 -p1 -b .applet-error
