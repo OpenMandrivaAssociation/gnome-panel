@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.28.0
-Release: %mkrel 2
+Release: %mkrel 3
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -31,6 +31,10 @@ Patch1:		gnome-panel-mdvcustomizations.patch
 Patch16:	gnome-panel-2.27.91-search.patch
 # (fc) 2.26.1-2mdv don't popup error message if one of default applet is missing (Fedora)
 Patch17:	gnome-panel-2.26.1-applet-error.patch
+# (fc) 2.28.0-3mdv enforce icon order for notification icons (GNOME bug #853115) (Fedora)
+Patch18:	gnome-panel-2.28.0-icon-order.patch
+# (fc) 2.28.0-3mdv ensure net_applet role is network
+Patch19:	gnome-panel-2.28.0-netapplet.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -110,6 +114,8 @@ Panel libraries and header files for creating GNOME panels.
 %patch1 -p1 -b .mdvcustomizations
 %patch16 -p1 -b .search
 %patch17 -p1 -b .applet-error
+%patch18 -p1 -b .icon-order
+%patch19 -p1 -b .netapplet
 
 %build
 
