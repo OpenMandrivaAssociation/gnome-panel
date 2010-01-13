@@ -16,8 +16,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.28.0
-Release: %mkrel 4
+Version: 2.29.5
+Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -39,8 +39,6 @@ Patch19:	gnome-panel-2.28.0-netapplet.patch
 Patch20:	bookmarks-submenu.patch
 # (fc) add about-mandriva menu entry if available
 Patch21:	gnome-panel-2.28.0-about-mandriva.patch
-# (fc) 2.28.0-4mdv xrandr fixes (GNOME bug #597101)
-Patch22:	gnome-panel-2.28.0-xrandr-fixes.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -124,7 +122,6 @@ Panel libraries and header files for creating GNOME panels.
 %patch19 -p1 -b .netapplet
 %patch20 -p1 -b .bookmarks-submenu
 %patch21 -p1 -b .about-mandriva
-%patch22 -p1 -b .xrandr-fixes
 
 %build
 
