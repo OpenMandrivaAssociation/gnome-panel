@@ -58,6 +58,7 @@ BuildRequires:	libgnomeui2-devel >= %{req_gnomeui_version}
 BuildRequires:	libGConf2-devel >= %{req_gconf2_version}
 BuildRequires:	evolution-data-server-devel >= 1.5.3
 BuildRequires:  gnome-menus-devel >= 2.27.92
+BuildRequires:  libcanberra-devel
 BuildRequires:  automake1.8 gettext-devel
 BuildRequires:	gtk-doc
 BuildRequires:	gnome-common
