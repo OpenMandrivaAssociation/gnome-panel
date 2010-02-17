@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.29.6
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -59,7 +59,7 @@ BuildRequires:	libGConf2-devel >= %{req_gconf2_version}
 BuildRequires:	evolution-data-server-devel >= 1.5.3
 BuildRequires:  gnome-menus-devel >= 2.27.92
 BuildRequires:  libcanberra-devel
-BuildRequires:  automake1.8 gettext-devel
+BuildRequires:  automake gettext-devel
 BuildRequires:	gtk-doc
 BuildRequires:	gnome-common
 BuildRequires:	intltool
