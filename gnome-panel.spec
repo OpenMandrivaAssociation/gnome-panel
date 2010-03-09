@@ -2,7 +2,7 @@
 %define req_libglade_version 2.5.0
 %define req_gconf2_version 2.6.1
 %define req_gnomeui_version 2.5.4
-%define req_gtk_version 2.11.3
+%define req_gtk_version 2.19.7
 %define req_glib_version 2.15.5
 %define req_gnomedesktop_version 2.11.1
 
@@ -16,7 +16,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.29.91
+Version: 2.29.92
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -31,10 +31,8 @@ Patch1:		gnome-panel-mdvcustomizations.patch
 Patch16:	gnome-panel-2.27.91-search.patch
 # (fc) 2.26.1-2mdv don't popup error message if one of default applet is missing (Fedora)
 Patch17:	gnome-panel-2.26.1-applet-error.patch
-# (fc) 2.28.0-3mdv enforce icon order for notification icons (GNOME bug #853115) (Fedora)
-Patch18:	gnome-panel-2.28.0-icon-order.patch
 # (fc) 2.28.0-3mdv ensure net_applet role is network
-Patch19:	gnome-panel-2.28.0-netapplet.patch
+Patch19:	gnome-panel-2.29.92-netapplet.patch
 # (fc) allow more bookmarks before switching to submenus
 Patch20:	bookmarks-submenu.patch
 # (fc) add about-mandriva menu entry if available
@@ -119,7 +117,6 @@ Panel libraries and header files for creating GNOME panels.
 %patch1 -p1 -b .mdvcustomizations
 %patch16 -p1 -b .search
 %patch17 -p1 -b .applet-error
-%patch18 -p1 -b .icon-order
 %patch19 -p1 -b .netapplet
 %patch20 -p1 -b .bookmarks-submenu
 %patch21 -p1 -b .about-mandriva
