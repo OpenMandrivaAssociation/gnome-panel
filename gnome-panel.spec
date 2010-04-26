@@ -17,7 +17,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.30.0
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -37,6 +37,10 @@ Patch19:	gnome-panel-2.29.92-netapplet.patch
 Patch20:	bookmarks-submenu.patch
 # (fc) add about-mandriva menu entry if available
 Patch21:	gnome-panel-2.28.0-about-mandriva.patch
+# (fc) add padding for icons on panel (GNOME bug #343436) (Fedora)
+Patch22:	gnome-panel-2.30.0-panel-padding.patch
+# (fc) add padding for icons in notification area (GNOME bug #583273)
+Patch23:	gnome-panel-2.30.0-icon-padding.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -120,6 +124,11 @@ Panel libraries and header files for creating GNOME panels.
 %patch19 -p1 -b .netapplet
 %patch20 -p1 -b .bookmarks-submenu
 %patch21 -p1 -b .about-mandriva
+%patch22 -p1 -b .panel-padding
+%patch23 -p1 -b .icon-padding
+
+#needed by patch23
+autoreconf
 
 %build
 
@@ -152,7 +161,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome-panelrc $RPM_BUILD_ROOT%{_localstatedir}
 %clean
 [ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
 
-%define schemas clock fish panel-compatibility panel-general panel-global panel-object panel-toplevel window-list workspace-switcher
+%define schemas clock fish panel-compatibility panel-general panel-global panel-object panel-toplevel window-list workspace-switcher notification_area_applet
 
 %if %mdkversion < 200900
 %post -p /sbin/ldconfig -n %{libname}
@@ -194,6 +203,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_sysconfdir}/gconf/schemas/panel-toplevel.schemas
 %{_sysconfdir}/gconf/schemas/window-list.schemas
 %{_sysconfdir}/gconf/schemas/workspace-switcher.schemas
+%{_sysconfdir}/gconf/schemas/notification_area_applet.schemas
 
 %{_sysconfdir}/gconf/schemas/panel-default-setup.entries
 
