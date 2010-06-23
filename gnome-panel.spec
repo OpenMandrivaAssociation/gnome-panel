@@ -16,8 +16,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.30.0
-Release: %mkrel 4
+Version: 2.30.2
+Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -40,9 +40,7 @@ Patch21:	gnome-panel-2.28.0-about-mandriva.patch
 # (fc) add padding for icons on panel (GNOME bug #343436) (Fedora)
 Patch22:	gnome-panel-2.30.0-panel-padding.patch
 # (fc) add padding for icons in notification area (GNOME bug #583273)
-Patch23:	gnome-panel-2.30.0-icon-padding.patch
-# (fc) 2.30.0-4mdv fix hidden panels (GIT)
-Patch24:	gnome-panel-2.30.0-hidden-panel.patch
+Patch23:	gnome-panel-2.30.2-icon-padding.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -128,7 +126,6 @@ Panel libraries and header files for creating GNOME panels.
 %patch21 -p1 -b .about-mandriva
 %patch22 -p1 -b .panel-padding
 %patch23 -p1 -b .icon-padding
-%patch24 -p1 -b .hidden-panel
 
 #needed by patch23
 autoreconf
