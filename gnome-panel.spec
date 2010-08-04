@@ -1,14 +1,16 @@
 %define req_libwnck_version 2.19.5
 %define req_libglade_version 2.5.0
-%define req_gconf2_version 2.6.1
+%define req_gconf2_version 2.31.6
 %define req_gnomeui_version 2.5.4
 %define req_gtk_version 2.19.7
 %define req_glib_version 2.15.5
 %define req_gnomedesktop_version 2.11.1
 
 %define api_version 2
+%define api2 3
 %define lib_major   0
 %define libname	%mklibname panel-applet- %{api_version} %{lib_major}
+%define libname2 %mklibname panel-applet- %{api2} %{lib_major}
 %define libnamedev %mklibname -d panel-applet- %{api_version}
 
 %define in_process_applets 1
@@ -16,7 +18,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.30.2
+Version: 2.31.6
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -29,8 +31,6 @@ Patch0:		gnome-panel-2.27.91-rootlock.patch
 Patch1:		gnome-panel-mdvcustomizations.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.27.91-search.patch
-# (fc) 2.26.1-2mdv don't popup error message if one of default applet is missing (Fedora)
-Patch17:	gnome-panel-2.26.1-applet-error.patch
 # (fc) 2.28.0-3mdv ensure net_applet role is network
 Patch19:	gnome-panel-2.29.92-netapplet.patch
 # (fc) allow more bookmarks before switching to submenus
@@ -40,7 +40,7 @@ Patch21:	gnome-panel-2.28.0-about-mandriva.patch
 # (fc) add padding for icons on panel (GNOME bug #343436) (Fedora)
 Patch22:	gnome-panel-2.30.0-panel-padding.patch
 # (fc) add padding for icons in notification area (GNOME bug #583273)
-Patch23:	gnome-panel-2.30.2-icon-padding.patch
+Patch23:	gnome-panel-2.31.6-icon-padding.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 URL:		http://www.gnome.org/
 BuildRequires:	gnome-desktop-devel >= %{req_gnomedesktop_version}
@@ -102,6 +102,14 @@ Provides:	libpanel-applet-%{api_version} = %{version}-%{release}
 
 %description -n	%{libname}
 Panel libraries for running GNOME panels.
+%package -n	%{libname2}
+Summary:	%{summary}
+Group:		System/Libraries
+
+Provides:	libpanel-applet-%{api2} = %{version}-%{release}
+
+%description -n	%{libname2}
+Panel libraries for running GNOME panels.
 
 %package -n	%{libnamedev}
 Summary:	Static libraries, include files for GNOME panel
@@ -110,6 +118,7 @@ Provides:	%{name}-devel = %{version}-%{release}
 Provides:	libpanel-applet-devel = %{version}-%{release}
 Provides:	libpanel-applet-%{api_version}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}
+Requires:	%{libname2} = %{version}-%{release}
 Obsoletes: %mklibname -d panel-applet- 2 0
 
 %description -n	%{libnamedev}
@@ -120,7 +129,6 @@ Panel libraries and header files for creating GNOME panels.
 %patch0 -p1 -b .rootlock
 %patch1 -p1 -b .mdvcustomizations
 %patch16 -p1 -b .search
-%patch17 -p1 -b .applet-error
 %patch19 -p1 -b .netapplet
 %patch20 -p1 -b .bookmarks-submenu
 %patch21 -p1 -b .about-mandriva
@@ -133,6 +141,7 @@ autoreconf
 %build
 
 %configure2_5x --enable-eds --disable-scrollkeeper \
+--disable-static \
 %if %{in_process_applets}
 --with-in-process-applets=all
 %endif
@@ -219,8 +228,8 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_libexecdir}/notification-area-applet
 %{_libexecdir}/wnck-applet
 %endif
+%_libdir/gnome-panel/
 %{_mandir}/man1/*
-%{_libdir}/bonobo/servers/*
 %{_datadir}/applications/*.desktop
 %dir %{_datadir}/gnome
 %dir %{_datadir}/gnome/help
@@ -237,6 +246,11 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %defattr (-, root, root)
 %{_libdir}/libpanel-applet-%{api_version}.so.%{lib_major}*
 
+%files -n %{libname2}
+%defattr (-, root, root)
+%{_libdir}/libpanel-applet-%{api2}.so.%{lib_major}*
+%_libdir/girepository-1.0/PanelApplet-3.0.typelib
+
 %files -n %{libnamedev}
 %defattr (-, root, root)
 %doc ChangeLog
@@ -246,3 +260,4 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_libdir}/*.a
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
+%_datadir/gir-1.0/PanelApplet-3.0.gir
