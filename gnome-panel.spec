@@ -50,6 +50,7 @@ BuildRequires:	libxres-devel
 BuildRequires:	libpng-devel
 BuildRequires:	librsvg-devel
 BuildRequires:	libgweather-devel >= 2.27.90
+BuildRequires:	gobject-introspection-devel
 BuildRequires:	polkit-1-devel
 BuildRequires:	rarian
 BuildRequires:	gnome-doc-utils
