@@ -258,7 +258,6 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %doc %{_datadir}/gtk-doc/html/*
 %{_includedir}/*
 %attr(644,root,root) %{_libdir}/*.la
-%{_libdir}/*.a
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
 %_datadir/gir-1.0/PanelApplet-3.0.gir
