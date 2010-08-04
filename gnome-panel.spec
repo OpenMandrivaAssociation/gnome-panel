@@ -229,7 +229,7 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_libexecdir}/notification-area-applet
 %{_libexecdir}/wnck-applet
 %endif
-%_libdir/gnome-panel/
+%_libdir/gnome-panel/modules
 %{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
 %dir %{_datadir}/gnome
