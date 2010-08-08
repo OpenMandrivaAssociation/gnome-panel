@@ -13,13 +13,13 @@
 %define libname2 %mklibname panel-applet- %{api2} %{lib_major}
 %define libnamedev %mklibname -d panel-applet- %{api_version}
 
-%define in_process_applets 1
+%define in_process_applets 0
 
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version: 2.31.6
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -225,9 +225,13 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %dir %{_libexecdir}/gnome-panel/*.so
 %else
 %{_libexecdir}/clock-applet
-%{_libexecdir}/fish-applet-2
+%{_libexecdir}/fish-applet
 %{_libexecdir}/notification-area-applet
 %{_libexecdir}/wnck-applet
+%_datadir/dbus-1/services/org.gnome.panel.applet.ClockAppletFactory.service
+%_datadir/dbus-1/services/org.gnome.panel.applet.FishAppletFactory.service
+%_datadir/dbus-1/services/org.gnome.panel.applet.NotificationAreaAppletFactory.service
+%_datadir/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service
 %endif
 %_libdir/gnome-panel/modules
 %{_mandir}/man1/*
