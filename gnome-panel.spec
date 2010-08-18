@@ -18,8 +18,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.31.6
-Release: %mkrel 2
+Version: 2.31.90
+Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
@@ -203,7 +203,6 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %files -f %name-2.0.lang
 %defattr (-, root, root)
 %doc AUTHORS COPYING NEWS README
-%{_sysconfdir}/dbus-1/system.d/org.gnome.ClockApplet.Mechanism.conf
 %{_sysconfdir}/gconf/schemas/clock.schemas
 %{_sysconfdir}/gconf/schemas/fish.schemas
 %{_sysconfdir}/gconf/schemas/panel-compatibility.schemas
@@ -218,7 +217,6 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %{_sysconfdir}/gconf/schemas/panel-default-setup.entries
 
 %{_bindir}/*
-%{_libexecdir}/gnome-clock-applet-mechanism
 %{_libexecdir}/gnome-panel-add
 %if %{in_process_applets}
 %dir %{_libexecdir}/gnome-panel
@@ -244,8 +242,6 @@ gconftool-2 --direct --config-source=$GCONF_CONFIG_SOURCE --load %{_sysconfdir}/
 %dir %{_datadir}/omf/*
 %{_datadir}/omf/*/*-C.omf
 %{_datadir}/icons/hicolor/*/apps/*
-%{_datadir}/polkit-1/actions/org.gnome.clockapplet.mechanism.policy
-%{_datadir}/dbus-1/system-services/org.gnome.ClockApplet.Mechanism.service
 
 %files -n %{libname}
 %defattr (-, root, root)
