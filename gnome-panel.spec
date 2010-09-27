@@ -18,7 +18,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version: 2.31.92
+Version: 2.32.0
 Release: %mkrel 1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -29,6 +29,7 @@ Source1:	mandriva-panel.png
 Patch0:		gnome-panel-2.27.91-rootlock.patch
 # (fc) 2.0.1-2mdk  Mandriva customization
 Patch1:		gnome-panel-mdvcustomizations.patch
+Patch2:		gnome-panel-2.32.0-fix-linking.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.27.91-search.patch
 # (fc) 2.28.0-3mdv ensure net_applet role is network
@@ -127,14 +128,7 @@ Panel libraries and header files for creating GNOME panels.
 
 %prep
 %setup -q
-%patch0 -p1 -b .rootlock
-%patch1 -p1 -b .mdvcustomizations
-%patch16 -p1 -b .search
-%patch19 -p1 -b .netapplet
-%patch20 -p1 -b .bookmarks-submenu
-%patch21 -p1 -b .about-mandriva
-%patch22 -p1 -b .panel-padding
-%patch23 -p1 -b .icon-padding
+%apply_patches
 
 #needed by patch23
 autoreconf
