@@ -29,6 +29,7 @@ Source1:	mandriva-panel.png
 Patch0:		gnome-panel-2.27.91-rootlock.patch
 # (fc) 2.0.1-2mdk  Mandriva customization
 Patch1:		gnome-panel-mdvcustomizations.patch
+Patch2:		gnome-panel-2.32.1-fix-linking.patch
 # (fc) 2.19.6-2mdv use beagle or tracker (if available) as search tool by default (Fedora)
 Patch16:	gnome-panel-2.27.91-search.patch
 # (fc) 2.28.0-3mdv ensure net_applet role is network
@@ -129,7 +130,7 @@ Panel libraries and header files for creating GNOME panels.
 %setup -q
 %apply_patches
 
-#needed by patch23
+#needed by patch2,patch23
 autoreconf
 
 %build
