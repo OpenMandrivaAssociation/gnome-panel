@@ -144,11 +144,11 @@ autoreconf
 make
 
 %install
-rm -rf $RPM_BUILD_ROOT %name-2.0.lang
+rm -rf %{buildroot} %name-2.0.lang
 
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
-install -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome-panel/pixmaps
+install -m 644 %{SOURCE1} %{buildroot}%{_datadir}/gnome-panel/pixmaps
 
 #remove old files
 rm -rf %buildroot%_datadir/omf/gnome-panel
@@ -159,11 +159,11 @@ echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buil
 done
 
 #remove unpackaged files
-rm -rf $RPM_BUILD_ROOT%{_datadir}/gnome-panelrc $RPM_BUILD_ROOT%{_localstatedir}/lib/scrollkeeper $RPM_BUILD_ROOT%{_libexecdir}/gnome-panel/*.{a,la}
+rm -rf %{buildroot}%{_datadir}/gnome-panelrc %{buildroot}%{_localstatedir}/lib/scrollkeeper %{buildroot}%{_libexecdir}/gnome-panel/*.{a,la}
 
 
 %clean
-[ -n "$RPM_BUILD_ROOT" -a "$RPM_BUILD_ROOT" != / ] && rm -rf $RPM_BUILD_ROOT
+[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
 
 %define schemas clock fish panel-compatibility panel-general panel-global panel-object panel-toplevel window-list workspace-switcher notification_area_applet
 
