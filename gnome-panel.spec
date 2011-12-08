@@ -1,9 +1,9 @@
 %define api 4
 %define major   0
-%define	gir_major 3.0
-%define libname	%mklibname panel-applet- %{api} %{major}
+%define	gir_major 4.0
+%define libname	%mklibname panel-applet %{api} %{major}
 %define girname	%mklibname panel-applet-gir %{gir_major}
-%define develname %mklibname -d panel-applet- %{api}
+%define develname %mklibname -d panel-applet %{api}
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
@@ -95,7 +95,8 @@ GObject Introspection interface description for %{name}.
 Summary:	Development libraries, include files for GNOME panel
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{libname} = %{version}
+Requires:	%{libname} = %{version}-%{release}
+Obsoletes:	%{_lib}panel-applet-2_0-devel
 Obsoletes:	%mklibname -d panel-applet- 2 0
 
 %description -n	%{develname}
@@ -107,7 +108,7 @@ Panel libraries and header files for creating GNOME panels.
 
 %build
 %configure2_5x \
-	--enable-eds 
+	--enable-eds  \
 	--disable-scrollkeeper \
 	--disable-static \
 	--disable-schemas-install
@@ -132,8 +133,9 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %preun
 %preun_uninstall_gconf_schemas clock
 
-%files -f %{name}-2.0.lang
+%files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
+%{_bindir}/*
 %{_sysconfdir}/gconf/schemas/clock.schemas
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
@@ -153,20 +155,16 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libexecdir}/fish-applet
 %{_libexecdir}/notification-area-applet
 %{_libexecdir}/wnck-applet
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.ClockAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.FishAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.NotificationAreaAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service
-%{_libdir}/gnome-panel/modules
 %{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
-%dir %{_datadir}/gnome
+%dir %{_datadir}/gnome/*
 %dir %{_datadir}/gnome/help
+%{_datadir}/gnome/help/*
 %{_datadir}/gnome-panel
-%{_datadir}/gnome-2.0/ui/*
-%{_datadir}/idl/*
-%dir %{_datadir}/omf/*
-%{_datadir}/omf/*/*-C.omf
+%dir %{_datadir}/omf
+%dir %{_datadir}/omf/clock
+%dir %{_datadir}/omf/fish
+%{_datadir}/omf/*/*.omf
 %{_datadir}/icons/hicolor/*/apps/*
 
 %files -n %{libname}
