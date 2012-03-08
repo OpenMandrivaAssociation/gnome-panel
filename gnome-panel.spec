@@ -8,7 +8,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version:	3.2.1
-Release:	1
+Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
@@ -58,7 +58,7 @@ Requires:	gnome-menus
 Requires:	alacarte
 Requires:	gnome-shell
 # for screen locking and search function in panel
-Requires:	gnome-search-tool
+Requires:	gnome-utils
 Requires:	gnome-screensaver
 Requires:	desktop-common-data
 
@@ -120,18 +120,12 @@ Panel libraries and header files for creating GNOME panels.
 find %{buildroot} -name '*.la' -delete;
 
 %find_lang %{name}-3.0 --with-gnome --all-name
-for omf in %{buildroot}%{_datadir}/omf/*/{*-??.omf,*-??_??.omf};do
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%{buildroot}!!)" >> %{name}-2.0.lang
-done
 
 #remove unpackaged files
 rm -rf %{buildroot}%{_datadir}/gnome-panelrc
 
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
-
-%preun
-%preun_uninstall_gconf_schemas clock
 
 %files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
@@ -161,10 +155,6 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %dir %{_datadir}/gnome/help
 %{_datadir}/gnome/help/*
 %{_datadir}/gnome-panel
-%dir %{_datadir}/omf
-%dir %{_datadir}/omf/clock
-%dir %{_datadir}/omf/fish
-%{_datadir}/omf/*/*.omf
 %{_datadir}/icons/hicolor/*/apps/*
 
 %files -n %{libname}
