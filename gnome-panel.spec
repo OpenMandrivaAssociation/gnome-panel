@@ -113,7 +113,7 @@ Panel libraries and header files for creating GNOME panels.
 	--disable-static \
 	--disable-schemas-install
 
-%make
+%make LIBS='-lgmodule-2.0'
 
 %install
 %makeinstall_std
