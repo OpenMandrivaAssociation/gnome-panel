@@ -151,9 +151,6 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libexecdir}/wnck-applet
 %{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
-%dir %{_datadir}/gnome/*
-%dir %{_datadir}/gnome/help
-%{_datadir}/gnome/help/*
 %{_datadir}/gnome-panel
 %{_datadir}/icons/hicolor/*/apps/*
 
