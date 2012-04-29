@@ -86,7 +86,6 @@ Panel libraries for running GNOME panels.
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
 Group:		System/Libraries
-Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -96,6 +95,7 @@ Summary:	Development libraries, include files for GNOME panel
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 Obsoletes:	%{_lib}panel-applet-2_0-devel
 Obsoletes:	%mklibname -d panel-applet- 2 0
 
