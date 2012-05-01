@@ -40,6 +40,7 @@ BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(NetworkManager) >= 0.6
 BuildRequires:	pkgconfig(pango) >= 1.15.4
+BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	pkgconfig(telepathy-glib) >= 0.14.0
 BuildRequires:	pkgconfig(x11)
