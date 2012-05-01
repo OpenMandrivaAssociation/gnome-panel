@@ -28,16 +28,12 @@ BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(dconf)
 BuildRequires:	pkgconfig(gconf-2.0) >= 2.6.1
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
-BuildRequires:	pkgconfig(gio-2.0) >= 2.25.12
-BuildRequires:	pkgconfig(gio-unix-2.0) >= 2.25.12
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gweather-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(ice)
-#BuildRequires:	pkgconfig(libecal-1.2) >= 2.91.2
-#BuildRequires:	pkgconfig(libedataserver-1.2) >= 2.91.2
 BuildRequires:	pkgconfig(libedataserverui-3.0) >= 2.91.2
 BuildRequires:	pkgconfig(libgnome-menu-3.0) >= 3.1.4
 BuildRequires:	pkgconfig(librsvg-2.0)
@@ -49,6 +45,7 @@ BuildRequires:	pkgconfig(telepathy-glib) >= 0.14.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xau)
 BuildRequires:	pkgconfig(xrandr) >= 1.2.0
+BuildConflicts:	libevolution-data-server2-devel
 
 Requires:	gsettings-desktop-schemas
 Requires:	gnome-session
