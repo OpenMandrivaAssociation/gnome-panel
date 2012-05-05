@@ -8,7 +8,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version:	3.4.1
-Release:	1
+Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
@@ -55,8 +55,8 @@ Requires:	polkit-agent
 Requires:	gnome-menus
 Requires:	alacarte
 Requires:	gnome-shell
-# for screen locking and search function in panel
-Requires:	gnome-utils
+# for search function in panel
+Requires:	gnome-search-tool
 Requires:	gnome-screensaver
 Requires:	desktop-common-data
 
