@@ -1,3 +1,5 @@
+%define url_ver	%(echo %{version}|cut -d. -f1,2)
+
 %define api 4
 %define major   0
 %define	gir_major 4.0
@@ -8,11 +10,11 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version:	3.4.1
-Release:	2
+Release:	3
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
 
 BuildRequires:	desktop-file-utils
@@ -53,7 +55,6 @@ Requires:	gnome-session
 Requires:	gnome-desktop3
 Requires:	polkit-agent
 Requires:	gnome-menus
-Requires:	alacarte
 Requires:	gnome-shell
 # for search function in panel
 Requires:	gnome-search-tool
@@ -61,6 +62,7 @@ Requires:	gnome-screensaver
 Requires:	desktop-common-data
 
 Suggests:	gnome-applets
+Obsoletes:	gnome-panel2
 
 %description
 GNOME (GNU Network Object Model Environment) is a user-friendly
