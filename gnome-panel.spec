@@ -1,10 +1,8 @@
-%define url_ver	%(echo %{version}|cut -d. -f1,2)
-
-%define api 4
-%define major   0
-%define	gir_major 4.0
+%define api	4
+%define major	0
+%define	girmajor 4.0
 %define libname	%mklibname panel-applet %{api} %{major}
-%define girname	%mklibname panel-applet-gir %{gir_major}
+%define girname	%mklibname panel-applet-gir %{girmajor}
 %define develname %mklibname -d panel-applet %{api}
 
 Summary:	The core programs for the GNOME GUI desktop environment
@@ -14,7 +12,7 @@ Release:	3
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 URL:		http://www.gnome.org/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
 
 BuildRequires:	desktop-file-utils
@@ -22,7 +20,6 @@ BuildRequires:	gettext
 BuildRequires:	gettext-devel
 BuildRequires:	glib2.0-common
 BuildRequires:	gnome-common
-BuildRequires:	gnome-doc-utils
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(cairo-gobject)
@@ -32,6 +29,7 @@ BuildRequires:	pkgconfig(gconf-2.0) >= 2.6.1
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
+BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gweather-3.0) >= 2.91.0
@@ -158,7 +156,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libdir}/libpanel-applet-%{api}.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/PanelApplet-%{gir_major}.typelib
+%{_libdir}/girepository-1.0/PanelApplet-%{girmajor}.typelib
 
 %files -n %{develname}
 %doc ChangeLog
@@ -166,5 +164,5 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_includedir}/*
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
-%{_datadir}/gir-1.0/PanelApplet-%{gir_major}.gir
+%{_datadir}/gir-1.0/PanelApplet-%{girmajor}.gir
 
