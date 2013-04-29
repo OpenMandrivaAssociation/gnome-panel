@@ -2,10 +2,10 @@
 
 %define api	4
 %define major	0
-%define girmajor 4.0
+%define gimajor	4.0
 %define libname	%mklibname panel-applet %{api} %{major}
-%define girname	%mklibname panel-applet-gir %{girmajor}
-%define devname %mklibname -d panel-applet %{api}
+%define girname	%mklibname panel-applet-gir %{gimajor}
+%define devname	%mklibname -d panel-applet %{api}
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
@@ -13,12 +13,11 @@ Version:	3.6.2
 Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
-URL:		http://www.gnome.org/
+Url:		http://www.gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
 
 BuildRequires:	desktop-file-utils
-BuildRequires:	gettext
 BuildRequires:	glib2.0-common
 BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
@@ -126,6 +125,11 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/*
+%{_libexecdir}/gnome-panel-add
+%{_libexecdir}/clock-applet
+%{_libexecdir}/fish-applet
+%{_libexecdir}/notification-area-applet
+%{_libexecdir}/wnck-applet
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
@@ -140,21 +144,16 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_datadir}/dbus-1/services/org.gnome.panel.applet.FishAppletFactory.service
 %{_datadir}/dbus-1/services/org.gnome.panel.applet.NotificationAreaAppletFactory.service
 %{_datadir}/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service
-%{_libexecdir}/gnome-panel-add
-%{_libexecdir}/clock-applet
-%{_libexecdir}/fish-applet
-%{_libexecdir}/notification-area-applet
-%{_libexecdir}/wnck-applet
-%{_mandir}/man1/*
 %{_datadir}/applications/*.desktop
 %{_datadir}/gnome-panel
-%{_datadir}/icons/hicolor/*/apps/*
+%{_iconsdir}/hicolor/*/apps/*
+%{_mandir}/man1/*
 
 %files -n %{libname}
 %{_libdir}/libpanel-applet-%{api}.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/PanelApplet-%{girmajor}.typelib
+%{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
 
 %files -n %{devname}
 %doc ChangeLog
@@ -162,5 +161,5 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_includedir}/*
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
-%{_datadir}/gir-1.0/PanelApplet-%{girmajor}.gir
+%{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
 
