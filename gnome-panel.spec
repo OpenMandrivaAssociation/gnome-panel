@@ -17,6 +17,7 @@ Url:		http://www.gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
 Patch0:		gnome-panel.remove-unused-gweatherxml-include.patch
+Patch1:		gnome-panel-3.6.2-new-gnome-desktop.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
