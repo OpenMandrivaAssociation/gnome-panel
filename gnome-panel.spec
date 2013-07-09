@@ -49,6 +49,7 @@ BuildRequires:	pkgconfig(telepathy-glib) >= 0.14.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xau)
 BuildRequires:	pkgconfig(xrandr) >= 1.2.0
+BuildRequires:	yelp-tools
 
 Requires:	gsettings-desktop-schemas
 Requires:	gnome-session
