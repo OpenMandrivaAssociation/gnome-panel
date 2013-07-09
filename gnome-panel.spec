@@ -28,6 +28,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig(cairo-gobject)
 BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(dconf)
+BuildRequires:  pkgconfig(evolution-data-server-1.2)
 BuildRequires:	pkgconfig(gconf-2.0) >= 2.6.1
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
