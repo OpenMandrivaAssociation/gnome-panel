@@ -150,6 +150,8 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_datadir}/applications/*.desktop
 %{_datadir}/gnome-panel
 %{_iconsdir}/hicolor/*/apps/*
+%{_datadir}/gnome-session/sessions/gnome-flashback.session
+%{_datadir}/xsessions/gnome-flashback.desktop
 %{_mandir}/man1/*
 
 %files -n %{libname}
@@ -160,7 +162,6 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 
 %files -n %{devname}
 %doc ChangeLog
-%doc %{_datadir}/gtk-doc/html/*
 %{_includedir}/*
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
