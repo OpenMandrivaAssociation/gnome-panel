@@ -9,15 +9,13 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.6.2
-Release:	4
+Version:	3.7.0
+Release:	0.1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
-Patch0:		gnome-panel.remove-unused-gweatherxml-include.patch
-Patch1:		gnome-panel-3.6.2-new-gnome-desktop.patch
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
@@ -106,6 +104,7 @@ Panel libraries and header files for creating GNOME panels.
 %apply_patches
 
 %build
+NOCONFIGURE=yes gnome-autogen.sh
 %configure2_5x \
 	--enable-eds  \
 	--disable-scrollkeeper \
