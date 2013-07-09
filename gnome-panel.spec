@@ -38,6 +38,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
 BuildRequires:	pkgconfig(gweather-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(ice)
+BuildRequires:	pkgconfig(libecal-1.2)
 BuildRequires:	pkgconfig(libgnome-menu-3.0) >= 3.1.4
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
