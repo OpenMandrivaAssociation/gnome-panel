@@ -1,4 +1,5 @@
----
-sources:
-  mandriva-panel.png: 6b2410f40be65e627a455691d0da63a3fcc45cfb
+removed_sources:
   gnome-panel-3.7.0.tar.xz: 903b61ad8a8410ad4f9deb62e57b15526b1ffe99
+sources:
+  gnome-panel-3.8.1.tar.xz: 7dd11de46a5cc261280f5cb8080287df9031c7f1
+  mandriva-panel.png: 6b2410f40be65e627a455691d0da63a3fcc45cfb

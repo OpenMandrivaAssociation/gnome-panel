@@ -9,8 +9,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.7.0
-Release:	0.1
+Version:	3.8.1
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -28,9 +28,9 @@ BuildRequires:	pkgconfig(cairo-gobject)
 BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(dconf)
 BuildRequires:  pkgconfig(evolution-data-server-1.2)
-BuildRequires:	pkgconfig(gconf-2.0) >= 2.6.1
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
+BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -105,12 +105,10 @@ Panel libraries and header files for creating GNOME panels.
 %apply_patches
 
 %build
-NOCONFIGURE=yes gnome-autogen.sh
-%configure2_5x \
+%configure \
 	--enable-eds  \
-	--disable-scrollkeeper \
-	--disable-static \
 	--disable-schemas-install \
+	--enable-compile-warnings=no
 
 %make LIBS='-lgmodule-2.0'
 
@@ -129,6 +127,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/*
 %{_libexecdir}/gnome-panel-add
+%{_libexecdir}/gnome-session-flashback
 %{_libexecdir}/clock-applet
 %{_libexecdir}/fish-applet
 %{_libexecdir}/notification-area-applet
@@ -148,10 +147,11 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_datadir}/dbus-1/services/org.gnome.panel.applet.NotificationAreaAppletFactory.service
 %{_datadir}/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service
 %{_datadir}/applications/*.desktop
+%{_datadir}/xsessions/gnome-fallback.desktop
+%{_datadir}/xsessions/gnome-flashback-compiz.desktop
 %{_datadir}/gnome-panel
 %{_iconsdir}/hicolor/*/apps/*
 %{_datadir}/gnome-session/sessions/gnome-flashback.session
-%{_datadir}/xsessions/gnome-flashback.desktop
 %{_mandir}/man1/*
 
 %files -n %{libname}
@@ -166,4 +166,5 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
+%{_datadir}/gtk-doc/html/panel-applet-%{gimajor}
 
