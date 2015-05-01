@@ -9,8 +9,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.8.1
-Release:	2
+Version:	3.16.1
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -30,7 +30,6 @@ BuildRequires:	pkgconfig(dconf)
 BuildRequires:  pkgconfig(evolution-data-server-1.2)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
-BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
