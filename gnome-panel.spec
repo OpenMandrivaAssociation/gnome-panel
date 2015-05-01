@@ -1,11 +1,11 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define api	4
+%define api	5
 %define major	0
-%define gimajor	4.0
-%define libname	%mklibname panel-applet %{api} %{major}
+%define gimajor	5.0
+%define libname	%mklibname panel-applet %{major}
 %define girname	%mklibname panel-applet-gir %{gimajor}
-%define devname	%mklibname -d panel-applet %{api}
+%define devname	%mklibname -d panel-applet
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
@@ -95,6 +95,7 @@ Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
+Obsoletes:	%{_lib}panel-applet4-devel
 
 %description -n	%{devname}
 Panel libraries and header files for creating GNOME panels.
@@ -125,12 +126,10 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/*
-%{_libexecdir}/gnome-panel-add
-%{_libexecdir}/gnome-session-flashback
-%{_libexecdir}/clock-applet
-%{_libexecdir}/fish-applet
-%{_libexecdir}/notification-area-applet
-%{_libexecdir}/wnck-applet
+%{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
+%{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
+%{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
+%{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
@@ -141,20 +140,13 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.menu-button.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.object.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.toplevel.gschema.xml
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.ClockAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.FishAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.NotificationAreaAppletFactory.service
-%{_datadir}/dbus-1/services/org.gnome.panel.applet.WnckletFactory.service
 %{_datadir}/applications/*.desktop
-%{_datadir}/xsessions/gnome-fallback.desktop
-%{_datadir}/xsessions/gnome-flashback-compiz.desktop
 %{_datadir}/gnome-panel
 %{_iconsdir}/hicolor/*/apps/*
-%{_datadir}/gnome-session/sessions/gnome-flashback.session
 %{_mandir}/man1/*
 
 %files -n %{libname}
-%{_libdir}/libpanel-applet-%{api}.so.%{major}*
+%{_libdir}/libpanel-applet.so.%{major}*
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
