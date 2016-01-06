@@ -9,7 +9,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.16.1
+Version:	3.18.1
 Release:	3
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -68,7 +68,7 @@ GNOME (GNU Network Object Model Environment) is a user-friendly
 set of applications and desktop tools to be used in conjunction with a
 window manager for the X Window System.  GNOME is similar in purpose and
 scope to CDE and KDE, but GNOME is based completely on free
-software. 
+software.
 
 The GNOME panel packages provides the gnome panel, menus and some
 basic applets for the panel.
