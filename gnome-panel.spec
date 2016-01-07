@@ -157,5 +157,5 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
 %{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
-%{_datadir}/gtk-doc/html/panel-applet-%{gimajor}
+%{_datadir}/gtk-doc/html/libpanel-applet
 
