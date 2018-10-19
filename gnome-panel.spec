@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(dconf)
 BuildRequires:  pkgconfig(evolution-data-server-1.2)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
+BuildRequires:	pkgconfig(gdm)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(gnome-doc-utils)
@@ -45,6 +46,7 @@ BuildRequires:	pkgconfig(NetworkManager) >= 0.6
 BuildRequires:	pkgconfig(pango) >= 1.15.4
 BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(sm)
+BuildRequires:	pkgconfig(systemd)
 BuildRequires:	pkgconfig(telepathy-glib) >= 0.14.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xau)
