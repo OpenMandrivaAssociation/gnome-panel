@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api	5
-%define major	0
+%define api	0
+%define major	3
 %define gimajor	5.0
 %define libname	%mklibname panel-applet %{major}
 %define girname	%mklibname panel-applet-gir %{gimajor}
@@ -133,6 +133,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 #{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
 #{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
 #{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
+%{_libdir}/gnome-panel/modules/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
@@ -149,7 +150,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_mandir}/man1/*
 
 %files -n %{libname}
-#{_libdir}/libpanel-applet.so.%{major}*
+%{_libdir}/libpanel-applet.so.%{major}*
 
 %files -n %{girname}
 #{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
