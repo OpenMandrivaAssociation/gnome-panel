@@ -149,16 +149,16 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_mandir}/man1/*
 
 %files -n %{libname}
-%{_libdir}/libpanel-applet.so.%{major}*
+#{_libdir}/libpanel-applet.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
+#{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
 
 %files -n %{devname}
 %doc ChangeLog
 %{_includedir}/*
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
-%{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
+#{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
 %{_datadir}/gtk-doc/html/libpanel-applet
 
