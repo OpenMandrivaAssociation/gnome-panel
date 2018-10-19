@@ -1,8 +1,8 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
-%define api	5
-%define major	0
+%define api	0
+%define major	3
 %define gimajor	5.0
 %define libname	%mklibname panel-applet %{major}
 %define girname	%mklibname panel-applet-gir %{gimajor}
@@ -10,8 +10,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.18.1
-Release:	4
+Version:	3.30.0
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -30,6 +30,7 @@ BuildRequires:	pkgconfig(cairo-xlib)
 BuildRequires:	pkgconfig(dconf)
 BuildRequires:  pkgconfig(evolution-data-server-1.2)
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0) >= 2.7.1
+BuildRequires:	pkgconfig(gdm)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.25.12
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(gnome-doc-utils)
@@ -45,6 +46,7 @@ BuildRequires:	pkgconfig(NetworkManager) >= 0.6
 BuildRequires:	pkgconfig(pango) >= 1.15.4
 BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(sm)
+BuildRequires:	pkgconfig(systemd)
 BuildRequires:	pkgconfig(telepathy-glib) >= 0.14.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xau)
@@ -127,10 +129,11 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/*
-%{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
-%{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
-%{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
-%{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
+%{_libdir}/gnome-panel/modules/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
@@ -150,13 +153,13 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libdir}/libpanel-applet.so.%{major}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
+#{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
 
 %files -n %{devname}
 %doc ChangeLog
 %{_includedir}/*
 %{_libdir}/libpanel*.so
 %{_libdir}/pkgconfig/*
-%{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
+#{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
 %{_datadir}/gtk-doc/html/libpanel-applet
 
