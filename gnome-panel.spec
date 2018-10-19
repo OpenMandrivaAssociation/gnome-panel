@@ -129,10 +129,10 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/*
-%{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
-%{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
-%{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
-%{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
+#{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
