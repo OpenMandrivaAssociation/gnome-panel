@@ -10,8 +10,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.30.0
-Release:	2
+Version:	3.32.0
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -113,10 +113,10 @@ Panel libraries and header files for creating GNOME panels.
 	--disable-schemas-install \
 	--enable-compile-warnings=no
 
-%make LIBS='-lgmodule-2.0'
+%make_build LIBS='-lgmodule-2.0'
 
 %install
-%makeinstall_std
+%make_install
 
 %find_lang %{name}-3.0 --with-gnome --all-name
 
