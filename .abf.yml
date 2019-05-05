@@ -1,7 +1,3 @@
-removed_sources:
-  gnome-panel-3.7.0.tar.xz: 903b61ad8a8410ad4f9deb62e57b15526b1ffe99
-  gnome-panel-3.8.1.tar.xz: 7dd11de46a5cc261280f5cb8080287df9031c7f1
-  gnome-panel-3.18.1.tar.xz: 112b69370f4fe179175d440d2efd2168b1b6fd2b
 sources:
-  gnome-panel-3.30.0.tar.xz: 8c67d1577758df97fdf8f741df00500b01bdf24d
+  gnome-panel-3.32.0.tar.xz: 5ae7de430b871d35cc3b4537ff83e3eb2ab3c499
   mandriva-panel.png: 6b2410f40be65e627a455691d0da63a3fcc45cfb
