@@ -141,7 +141,8 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.launcher.gschema.xml
-#{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.menu-button.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.menu-button.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.initial-settings.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.object.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.toplevel.gschema.xml
 %{_datadir}/applications/*.desktop
