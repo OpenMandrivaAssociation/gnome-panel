@@ -42,7 +42,6 @@ BuildRequires:	pkgconfig(libecal-2.0)
 BuildRequires:	pkgconfig(libgnome-menu-3.0) >= 3.1.4
 BuildRequires:	pkgconfig(librsvg-2.0)
 BuildRequires:	pkgconfig(libwnck-3.0) >= 2.91.0
-BuildRequires:	pkgconfig(NetworkManager) >= 0.6
 BuildRequires:	pkgconfig(pango) >= 1.15.4
 BuildRequires:	pkgconfig(polkit-gobject-1)
 BuildRequires:	pkgconfig(sm)
