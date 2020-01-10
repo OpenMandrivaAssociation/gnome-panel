@@ -104,7 +104,7 @@ Panel libraries and header files for creating GNOME panels.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %configure \
