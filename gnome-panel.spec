@@ -127,6 +127,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 
 %files -f %{name}-3.0.lang
 %doc AUTHORS COPYING NEWS README
+%{_datadir}/gtk-doc/html/libgnome-panel/*
 %{_bindir}/*
 #{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
 #{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
@@ -151,6 +152,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 
 %files -n %{libname}
 %{_libdir}/libpanel-applet.so.%{major}*
+%{_libdir}/libgnome-panel.so.%{api}*
 
 %files -n %{girname}
 #{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
@@ -159,6 +161,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %doc ChangeLog
 %{_includedir}/*
 %{_libdir}/libpanel*.so
+%{_libdir}/libgnome-panel.so
 %{_libdir}/pkgconfig/*
 #{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
 %{_datadir}/gtk-doc/html/libpanel-applet
