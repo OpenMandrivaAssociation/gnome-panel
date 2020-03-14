@@ -84,19 +84,19 @@ Provides:	libpanel-applet-%{api} = %{version}-%{release}
 %description -n	%{libname}
 Panel libraries for running GNOME panels.
 
-%package -n %{girname}
-Summary:	GObject Introspection interface description for %{name}
-Group:		System/Libraries
-
-%description -n %{girname}
-GObject Introspection interface description for %{name}.
+#%package -n %{girname}
+#Summary:	GObject Introspection interface description for %{name}
+#Group:		System/Libraries
+#
+#%description -n %{girname}
+#GObject Introspection interface description for %{name}.
 
 %package -n	%{devname}
 Summary:	Development libraries, include files for GNOME panel
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}-%{release}
-Requires:	%{girname} = %{version}-%{release}
+#Requires:	%{girname} = %{version}-%{release}
 Obsoletes:	%{_lib}panel-applet4-devel
 
 %description -n	%{devname}
@@ -154,7 +154,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libdir}/libpanel-applet.so.%{major}*
 %{_libdir}/libgnome-panel.so.%{api}*
 
-%files -n %{girname}
+#%files -n %{girname}
 #{_libdir}/girepository-1.0/PanelApplet-%{gimajor}.typelib
 
 %files -n %{devname}
