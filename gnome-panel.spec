@@ -1,5 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
-%define _disable_rebuild_configure 1
+# modules/action-button and friends are dlopened and may call
+# into stuff they're not linked to directly
+%define _disable_ld_no_undefined 1
 
 %define api	0
 %define major	3
@@ -136,11 +138,11 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_libdir}/gnome-panel/modules/*
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.launcher.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.window-list.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.workspace-switcher.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.gschema.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.launcher.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.menu-button.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.initial-settings.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.object.gschema.xml
@@ -151,7 +153,6 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %{_mandir}/man1/*
 
 %files -n %{libname}
-%{_libdir}/libpanel-applet.so.%{major}*
 %{_libdir}/libgnome-panel.so.%{api}*
 
 #%files -n %{girname}
@@ -160,9 +161,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 %files -n %{devname}
 %doc ChangeLog
 %{_includedir}/*
-%{_libdir}/libpanel*.so
 %{_libdir}/libgnome-panel.so
 %{_libdir}/pkgconfig/*
 #{_datadir}/gir-1.0/PanelApplet-%{gimajor}.gir
-%{_datadir}/gtk-doc/html/libpanel-applet
 
