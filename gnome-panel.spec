@@ -12,7 +12,7 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.42.0
+Version:	3.44.0
 Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
@@ -38,7 +38,7 @@ BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.0
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.0
-BuildRequires:	pkgconfig(gweather-3.0) >= 2.91.0
+BuildRequires:	pkgconfig(gweather4)
 BuildRequires:	pkgconfig(ice)
 BuildRequires:	pkgconfig(libecal-2.0)
 BuildRequires:	pkgconfig(libgnome-menu-3.0) >= 3.1.4
