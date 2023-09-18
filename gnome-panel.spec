@@ -128,8 +128,7 @@ mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 
 %files -f %{name}-3.0.lang
-%doc AUTHORS COPYING NEWS README
-%{_datadir}/gtk-doc/html/libgnome-panel/*
+%doc AUTHORS COPYING NEWS
 %{_bindir}/*
 #{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
 #{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
