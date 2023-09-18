@@ -3,7 +3,7 @@
 # into stuff they're not linked to directly
 %define _disable_ld_no_undefined 1
 
-%define api	0
+%define api	3
 %define major	3
 %define gimajor	5.0
 %define libname	%mklibname panel-applet %{major}
@@ -12,8 +12,8 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.46.0
-Release:	3
+Version:	3.49.1
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -128,8 +128,7 @@ mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 
 %files -f %{name}-3.0.lang
-%doc AUTHORS COPYING NEWS README
-%{_datadir}/gtk-doc/html/libgnome-panel/*
+%doc AUTHORS COPYING NEWS
 %{_bindir}/*
 #{_libdir}/gnome-panel/%{gimajor}/libclock-applet.so
 #{_libdir}/gnome-panel/%{gimajor}/libfish-applet.so
