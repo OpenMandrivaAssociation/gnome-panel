@@ -3,7 +3,7 @@
 # into stuff they're not linked to directly
 %define _disable_ld_no_undefined 1
 
-%define api	0
+%define api	3
 %define major	3
 %define gimajor	5.0
 %define libname	%mklibname panel-applet %{major}
