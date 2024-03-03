@@ -13,7 +13,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version:	3.50.0
-Release:	1
+Release:	2
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		http://www.gnome.org/
@@ -60,8 +60,6 @@ Requires:	gnome-desktop3
 Requires:	polkit-agent
 Requires:	gnome-menus
 Requires:	gnome-shell
-# for search function in panel
-Requires:	gnome-search-tool
 Requires:	gnome-screensaver
 Requires:	desktop-common-data
 
