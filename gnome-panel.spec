@@ -12,12 +12,12 @@
 
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
-Version:	3.50.0
-Release:	2
+Version:	3.52.0
+Release:	1
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
-Url:		http://www.gnome.org/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://www.gnome.org/
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
 
 BuildRequires:	desktop-file-utils
