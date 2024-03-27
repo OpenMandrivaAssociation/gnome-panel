@@ -60,7 +60,8 @@ Requires:	gnome-desktop3
 Requires:	polkit-agent
 Requires:	gnome-menus
 Requires:	gnome-shell
-Requires:	gnome-screensaver
+# No longer needed
+#Requires:	gnome-screensaver
 Requires:	desktop-common-data
 
 Suggests:	gnome-applets
