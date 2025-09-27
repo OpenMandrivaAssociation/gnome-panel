@@ -134,6 +134,7 @@ cp -a %{SOURCE1} %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 #{_libdir}/gnome-panel/%{gimajor}/libnotification-area-applet.so
 #{_libdir}/gnome-panel/%{gimajor}/libwnck-applet.so
 %{_libdir}/gnome-panel/modules/*
+%{_libdir}/systemd/user/gnome-panel.service
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.clock.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.fish.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.gnome-panel.applet.launcher.gschema.xml
