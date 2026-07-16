@@ -13,7 +13,7 @@
 Summary:	The core programs for the GNOME GUI desktop environment
 Name:		gnome-panel
 Version:	3.58.1
-Release:	3
+Release:	4
 License:	GPLv2+ and LGPLv2+
 Group:		Graphical desktop/GNOME
 Url:		https://www.gnome.org/
