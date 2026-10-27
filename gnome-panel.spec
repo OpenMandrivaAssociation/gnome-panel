@@ -2,6 +2,7 @@
 # modules/action-button and friends are dlopened and may call
 # into stuff they're not linked to directly
 %define _disable_ld_no_undefined 1
+%global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
 
 %define api	3
 %define major	3
