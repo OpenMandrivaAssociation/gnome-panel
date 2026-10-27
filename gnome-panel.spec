@@ -20,6 +20,9 @@ Group:		Graphical desktop/GNOME
 Url:		https://www.gnome.org/
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/gnome-panel/%{url_ver}/%{name}-%{version}.tar.xz
 Source1:	mandriva-panel.png
+Patch0:		gnome-panel-can-shutdown.patch
+Patch1:		gnome-panel-84.patch
+Patch2:		libical-4.patch
 
 BuildRequires:	autoconf
 BuildRequires:	automake
